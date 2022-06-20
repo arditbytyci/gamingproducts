@@ -13,12 +13,13 @@ const Header = () => {
             </Typography>
             <Tabs
                 sx={{ml:'auto'}} 
-            textColor="inherit" indicatorColor="secondary" value={value} onChange={(e,val)=>setValue(val)}>
+            textColor="white"  indicatorColor="secondary" value={value} onChange={(e,val)=>setValue(val)}>
                 <Tab LinkComponent={NavLink} to="/Add" label="Add product" />
                 <Tab LinkComponent={NavLink} to="/Products" label="Products" />
                 <Tab LinkComponent={NavLink} to="/About" label="About Us" />
-                
-                
+
+                <button className="btn btn-outline-light ms-4 px-4 mt-2 mb-2 rounded-sm">  Login</button>
+                <button className="btn btn-outline-light ms-4 px-4 mt-2 mb-2 rounded-sm">Register</button>
             </Tabs>
         </Toolbar>
     </AppBar>
@@ -27,3 +28,5 @@ const Header = () => {
 }
 
 export default Header
+
+
