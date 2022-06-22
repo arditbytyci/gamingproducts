@@ -1,7 +1,8 @@
 const User = require('../models/User');
-const bcrypt = require('bcryptjs')
-
-exports.singUpController = async (req,res) => {
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const {jwtSecret, jwtExpire} = require('../config/keys');
+exports.signUpController = async (req,res) => {
     //deconstruct 
     const {username, email, password} = req.body;
 
@@ -31,10 +32,71 @@ exports.singUpController = async (req,res) => {
             successMessage: 'Registration success.Please sign in.'
         });
     } catch (error) {
-        console.log(error);
+        
         res.status(500).json({
             errorMessage: 'Server error.'
         })
     }
 
+}
+
+exports.signInUpController = async (req,res) => {
+    //deconstruct 
+    const {email, password} = req.body;
+
+
+    try {
+        
+        const user = await User.findOne({email});
+
+        if(!user) {
+          return  res.status(400).json({
+            errorMessage:'Invalid credentials'
+         });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if(!isMatch) {
+            return res.status(400).json({
+                errorMessage:'Invalid credentials'
+            });
+        }
+
+        // payload 
+
+        const payload = {
+            user: {
+                _id: user._id,
+            },
+        }
+
+        await jwt.sign(payload, jwtSecret, {expiresIn: jwtExpire}, (err, token) => {
+
+            if(err) {
+            console.log(err);
+            }
+            const {_id, username, email, role } = user;
+
+
+             res.json({
+                token,
+                user: {
+                    _id,
+                    username,
+                    email,
+                    role
+                },
+            })
+
+        });
+
+
+    } catch (error) {
+        res.status(500).json({
+            errorMessage: 'Server error.'
+        })
+    }
+
+  
 }

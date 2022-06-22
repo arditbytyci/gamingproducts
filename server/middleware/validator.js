@@ -6,6 +6,10 @@ exports.singUpValidator = [
     check('password').isLength({min : 6}).withMessage('Password must be at least 6 characters long')
 ];
 
+exports.singInValidator = [
+    check('email').isEmail().normalizeEmail().withMessage('Invalid email'),
+    check('password').isLength({min : 6}).withMessage('Password must be at least 6 characters long')
+];
 
 
 exports.validationResult = (req,res,next) => {
