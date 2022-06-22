@@ -6,6 +6,7 @@ import About from "./components/About";
 import AddProduct from "./components/AddProduct";
 import ProductsContainer from "./components/Product/ProductsContainer";
 import ProductDetail from "./components/Product/ProductDetail";
+import SingUp from "./components/SIgnUp"
 
 
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/products" element={<ProductsContainer/>} exact />
             <Route path="/about" element={<About/>} exact />
             <Route path="/products/:id" element={<ProductDetail/>}  exact />
+            <Route path="/singup" element={<SingUp/>} exact />
           </Routes>
         </main>
     </React.Fragment>
