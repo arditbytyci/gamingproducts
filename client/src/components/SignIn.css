@@ -1,0 +1,12 @@
+.signin-container {
+    background-image: url('./images/keyboard.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity:0.9;
+	
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: purple !important;
+}

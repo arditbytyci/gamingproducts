@@ -1,18 +1,18 @@
 const { check, validationResult} = require('express-validator');
 
-exports.singUpValidator = [
+exports.signUpValidator = [
     check('username').not().isEmpty().trim().withMessage('All fields required'),
     check('email').isEmail().normalizeEmail().withMessage('Invalid email'),
     check('password').isLength({min : 6}).withMessage('Password must be at least 6 characters long')
 ];
 
-exports.singInValidator = [
+exports.signInValidator = [
     check('email').isEmail().normalizeEmail().withMessage('Invalid email'),
     check('password').isLength({min : 6}).withMessage('Password must be at least 6 characters long')
 ];
 
 
-exports.validationResult = (req,res,next) => {
+exports.validatorResult = (req,res,next) => {
 
     const result = validationResult(req);
     const hasErrors = !result.isEmpty();

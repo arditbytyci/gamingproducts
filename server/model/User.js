@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
     },
     role: {
         type: Number,
-        defailt: 0
+        default: 0
     }
 }, {timestamps: true});
 

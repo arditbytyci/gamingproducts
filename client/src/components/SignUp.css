@@ -1,3 +1,12 @@
 .signup-container {
-    background-color:lightseagreen;
+    background-image: url('./images/console.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: purple !important;
 }

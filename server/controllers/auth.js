@@ -1,7 +1,8 @@
-const User = require('../models/User');
+const User = require('../model/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {jwtSecret, jwtExpire} = require('../config/keys');
+
 exports.signUpController = async (req,res) => {
     //deconstruct 
     const {username, email, password} = req.body;
@@ -40,7 +41,7 @@ exports.signUpController = async (req,res) => {
 
 }
 
-exports.signInUpController = async (req,res) => {
+exports.signInController = async (req,res) => {
     //deconstruct 
     const {email, password} = req.body;
 
