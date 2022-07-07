@@ -2,6 +2,8 @@ import { Button } from '@mui/material';
 import React from 'react';
 import axios from 'axios';
 import { Link, useNavigate} from 'react-router-dom';
+
+
 import "./Product.css"
 const Product = (props) => {
     const {_id,name,productType,description,price,image} = props.product;

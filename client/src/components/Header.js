@@ -97,6 +97,11 @@ const Header = () => {
                                     <i className='fas fa-shopping-bag'></i> Products
                                 </Link>
                             </li>
+                            <li className='nav-item '>
+                                <Link to='/Users' className='nav-link'>
+                                    <i className='fas fa-shopping-bag'></i> Users
+                                </Link>
+                            </li>
                         </Fragment>
                     )}
     
